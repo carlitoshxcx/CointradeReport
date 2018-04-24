@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Desafio Web Developer</title>
+        
+        <!-- Materialize UI -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                
+        <!-- Angular LIB -->
+        <script src="/app/lib/angularjs-v1.6.9.min.js"></script>
+        <script src="/app/js/app.js"></script>
+    </head>
+    <body ng-controller="ctrlApp as timeseries" style="margin:0; padding: 0;">
+
+        <header style="background-color: #26a599; padding: 20px 0px 20px 0px; color: white; ">
+            <center>
+                <h4>
+                    <small>
+                        {{ timeseries["Meta Data"]["1. Information"] }} 
+                        [{{ timeseries["Meta Data"]["2. Symbol"] }}]
+                    </small>
+                </h4>
+                <h6>
+                    (<small>Last Refreshed:</small>  {{ timeseries["Meta Data"]["3. Last Refreshed"] }} | 
+                    <small>Time Zone:</small>        {{ timeseries["Meta Data"]["5. Time Zone"] }})
+                </h6>
+            </center>
+        </header>
+
+        <main class="main">
+            <timeseries></timeseries>
+
+            <div>
+                <div align="center" style="margin: 20px 0;">
+                    <button 
+                        ng-disabled="currentPage == 0" 
+                        ng-click="currentPage=currentPage-1" 
+                        class="waves-effect waves-light btn-small">Anterior</button>
+                    
+                    <span class="waves-effect waves-light btn disabled">{{currentPage+1}}/{{pageNumber()}}</span>
+                    
+                    <button 
+                        ng-disabled="currentPage >= timeseriesFiltered().length/pageSize - 1" 
+                        ng-click="currentPage=currentPage+1" 
+                        class="waves-effect waves-light btn-small">Próximo</button>
+                </div>
+            </div>
+        </main>
+
+    </body>
+</html>

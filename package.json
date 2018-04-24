@@ -1,0 +1,15 @@
+{
+  "name": "teste-cointrade-carlitoshxcx",
+  "version": "1.0.0",
+  "description": "Teste de front-end para a empresa Cointrade",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carlitoshxcx/CointradeReport.git"
+  },
+  "author": "Carlos Eduardo Gomes <carlitoshxcx@gmail.com>",
+  "license": "GPL-3.0"
+}
